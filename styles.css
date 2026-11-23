@@ -1209,6 +1209,13 @@ h2 {
   margin: 0;
 }
 
+.meta .award {
+  margin-top: 0.85rem;
+  color: var(--blood);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .tags {
   color: var(--muted);
   font-size: 0.82rem !important;
