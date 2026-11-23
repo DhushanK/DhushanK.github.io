@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,450&family=Outfit:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=39" />
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%23f3eee4' width='32' height='32'/%3E%3Cpath d='M2 16h8l3-7 4 14 3-7h10' fill='none' stroke='%237d3140' stroke-width='1.6'/%3E%3C/svg%3E"
@@ -29,10 +29,9 @@
     <header class="nav">
       <a class="nav-name" href="#top">Dhushan Kiritharan</a>
       <nav aria-label="Page">
-        <a href="#body">Body</a>
-        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#studio">Studio</a>
+        <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -45,8 +44,8 @@
           <span>@ McMaster University</span>
         </p>
         <p class="sr-only">
-          Software Engineer, Electrical Engineer, Embedded Systems, Robotics
-          Engineer, and DSP Engineer. But always a biomedical engineer.
+          Software Engineer, Electrical Engineer, Robotics Engineer, and DSP
+          Engineer. But always a biomedical engineer.
         </p>
         <span class="role" id="role" aria-hidden="true">Software Engineer</span>
         <svg class="pulse" viewBox="0 0 280 48" aria-hidden="true">
@@ -73,7 +72,8 @@
           <figcaption class="sr-only">
             A looping recording with EEG at Cz, F3, F4, and O1, a chest ECG,
             the pulse, skin conductance, and skin temperature. Switch between a
-            time-series plot and a frequency spectrogram. Each channel plays its
+            time-series plot and a frequency spectrogram. In the frequency view,
+            the side labels each channel’s dominant frequency. Each channel plays its
             own recording and repeats on its own.
           </figcaption>
           <div class="scope">
@@ -82,12 +82,15 @@
               <canvas id="scope"></canvas>
               <p id="scope-read" class="scope-read" hidden></p>
             </div>
+            <p class="bands-caption" id="bands-caption" hidden>
+              Dominant frequency
+            </p>
             <div
               class="scope-bands"
               id="scope-bands"
               hidden
               aria-hidden="true"
-              aria-label="Predominant frequency bands"
+              aria-label="Dominant frequency"
             ></div>
           </div>
           <div class="monitor-bar">
@@ -102,145 +105,702 @@
             </div>
             <p id="scope-status">
               EEG at four sites, chest ECG, pulse, skin conductance, and skin
-              temperature. Each one loops on its own.
+              temperature.
             </p>
           </div>
         </figure>
       </section>
 
-      <section class="band" id="work">
+      <section class="band" id="experience">
         <div class="band-head">
-          <p class="index">01 — Work</p>
-          <h2>Where the signal has to be real.</h2>
+          <p class="index">01 — Experience</p>
+          <h2>Experience</h2>
         </div>
 
-        <article class="entry">
-          <div class="meta">
-            <time datetime="2025-05">May 2025 – Sept 2026</time>
-            <p>Toronto</p>
+        <div class="features">
+          <article class="feature theme-plum">
+            <div class="feature-viz" aria-hidden="true">
+              <span class="feature-tag">BCI · Montage</span>
+              <svg class="viz viz-bci" viewBox="16 8 448 224" preserveAspectRatio="xMidYMid meet">
+                <g class="viz-axes">
+                  <ellipse cx="118" cy="118" rx="78" ry="92" />
+                  <path d="M70 188 C88 208, 148 208, 166 188" />
+                  <path d="M72 55 C90 28, 146 28, 164 55" />
+                </g>
+                <g class="viz-trace viz-soft">
+                  <path d="M118 40 V196" />
+                  <path d="M52 118 H184" />
+                  <path d="M70 70 L166 166" opacity="0.45" />
+                  <path d="M166 70 L70 166" opacity="0.45" />
+                </g>
+                <g class="viz-marks">
+                  <circle cx="118" cy="48" r="5" />
+                  <circle cx="78" cy="78" r="4.5" />
+                  <circle cx="158" cy="78" r="4.5" />
+                  <circle cx="118" cy="118" r="5.5" />
+                  <circle cx="68" cy="128" r="4" />
+                  <circle cx="168" cy="128" r="4" />
+                  <circle cx="88" cy="158" r="4.5" />
+                  <circle cx="148" cy="158" r="4.5" />
+                  <circle cx="118" cy="178" r="4" />
+                  <text x="40" y="28">10–20</text>
+                </g>
+                <g class="viz-trace">
+                  <path d="M196 58 H228" />
+                  <path d="M196 118 H228" />
+                  <path d="M196 178 H228" />
+                  <path d="M228 58 V178" />
+                  <path d="M228 118 H252" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M260 52 C278 34, 296 70, 314 48 S350 28, 368 52 S404 72, 432 44" />
+                  <path d="M260 92 C280 78, 298 108, 316 90 S352 74, 370 96 S404 112, 432 86" />
+                  <path d="M260 132 C276 118, 294 148, 312 128 S348 112, 366 138 S402 154, 432 126" />
+                  <path d="M260 172 C282 158, 300 188, 318 168 S354 152, 372 178 S406 194, 432 166" />
+                </g>
+                <g class="viz-marks">
+                  <circle cx="228" cy="118" r="3.5" />
+                  <text x="260" y="28">channels</text>
+                  <text x="400" y="200">live EEG</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <p class="feature-meta">
+                <time datetime="2025-05">May 2025 – Sept 2026</time>
+                <span>Toronto</span>
+              </p>
+              <div class="feature-heading">
+                <img
+                  class="org-mark"
+                  src="assets/divergence-mark.png"
+                  alt=""
+                  width="462"
+                  height="462"
+                  decoding="async"
+                />
+                <h3>Software Engineer Intern</h3>
+              </div>
+              <p class="org">Divergence Neuro Technologies Inc.</p>
+              <ul class="points">
+                <li>
+                  Built real-time BCI and EEG pipelines with minimum-phase FIR
+                  filters, blink detection, and impedance gating, cutting latency
+                  and improving frequency resolution by more than 10×.
+                </li>
+                <li>
+                  Shipped DSP and streaming features across a TypeScript library,
+                  React web app, React Native app, and native Kotlin/Swift
+                  Bluetooth layers over RxJS and WebSockets.
+                </li>
+                <li>
+                  Wrote a mixed-radix FFT (~6× faster than radix-2) and a
+                  multimodal ECG/PPG/respiration/EDA path with AR heart-rate
+                  coherence (~5× faster than standard HRV biofeedback).
+                </li>
+                <li>
+                  Added Lempel-Ziv brain-entropy streaming, a DSP profiler that
+                  doubled neurofeedback throughput, and a computer-vision check
+                  for lighting and face alignment before stress readings.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="feature feature-flip theme-teal">
+            <div class="feature-viz" aria-hidden="true">
+              <span class="feature-tag">Vision → Haptic</span>
+              <svg class="viz viz-haptic" viewBox="28 24 424 200" preserveAspectRatio="xMidYMid meet">
+                <g class="viz-axes">
+                  <path d="M40 42 H200 V188 H40 Z" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M55 150 C90 58, 130 168, 170 95" />
+                  <path d="M210 115 H255" />
+                </g>
+                <g class="viz-marks">
+                  <circle cx="295" cy="58" r="5" />
+                  <circle cx="335" cy="58" r="3" />
+                  <circle cx="375" cy="58" r="7" />
+                  <circle cx="415" cy="58" r="4" />
+                  <circle cx="295" cy="95" r="4" />
+                  <circle cx="335" cy="95" r="8" />
+                  <circle cx="375" cy="95" r="5" />
+                  <circle cx="415" cy="95" r="3" />
+                  <circle cx="295" cy="132" r="6" />
+                  <circle cx="335" cy="132" r="4" />
+                  <circle cx="375" cy="132" r="9" />
+                  <circle cx="415" cy="132" r="5" />
+                  <circle cx="295" cy="168" r="3" />
+                  <circle cx="335" cy="168" r="6" />
+                  <circle cx="375" cy="168" r="4" />
+                  <circle cx="415" cy="168" r="7" />
+                  <text x="55" y="200">camera</text>
+                  <text x="295" y="200">tactile</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <p class="feature-meta">
+                <time datetime="2024-10">Oct 2024 – Present</time>
+                <span>Hamilton</span>
+              </p>
+              <h3>Camera and Signal Processing Lead</h3>
+              <p class="org">McMaster MED-T — Sensory Substitution</p>
+              <ul class="points">
+                <li>
+                  Lead the camera and signal path for a sensory-substitution aid
+                  that turns a live video feed into tactile output so people who
+                  are visually impaired can sense the scene.
+                </li>
+                <li>
+                  Design the vision-to-haptic pipeline that maps spatial structure
+                  from the camera into a real-time tactile representation.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="feature theme-navy">
+            <div class="feature-viz" aria-hidden="true">
+              <span class="feature-tag">Array · Ranging</span>
+              <svg class="viz viz-array" viewBox="28 24 424 200" preserveAspectRatio="xMidYMid meet">
+                <g class="viz-axes">
+                  <path d="M48 205 H440" />
+                  <path d="M240 40 V205" opacity="0.35" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M240 190 L95 70" />
+                  <path d="M240 190 L160 55" />
+                  <path d="M240 190 L240 42" />
+                  <path d="M240 190 L320 55" />
+                  <path d="M240 190 L385 70" />
+                  <path d="M145 115 A120 120 0 0 1 335 115" />
+                  <path d="M175 140 A80 80 0 0 1 305 140" />
+                </g>
+                <g class="viz-marks">
+                  <circle cx="100" cy="74" r="5" />
+                  <circle cx="170" cy="58" r="4" />
+                  <circle cx="310" cy="58" r="4" />
+                  <circle cx="380" cy="74" r="6" />
+                  <circle cx="220" cy="190" r="4" />
+                  <circle cx="240" cy="190" r="4" />
+                  <circle cx="260" cy="190" r="4" />
+                  <text x="48" y="48">beam</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <p class="feature-meta">
+                <time datetime="2024-10">Oct 2024 – Present</time>
+                <span>Hamilton</span>
+              </p>
+              <h3>Electrical Engineer</h3>
+              <p class="org">McMaster MED-T — SafeStride</p>
+              <ul class="points">
+                <li>
+                  Co-developed SafeStride, a React Native app that uses GPS and
+                  the Google Maps API for real-time pedestrian navigation and
+                  dynamic crosswalk identification.
+                </li>
+                <li>
+                  Designed hardware and software for phased-array control with
+                  high-frequency signal generation, phase-shifting, and ultrasonic
+                  sensors for object detection and vehicle vector tracking.
+                </li>
+                <li>
+                  Integrated a YOLO object-tracking pipeline with Bluetooth over
+                  a Raspberry Pi to stream safe-to-cross audio feedback through
+                  custom bone-conduction headphones.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="feature feature-flip theme-amber">
+            <div class="feature-viz" aria-hidden="true">
+              <span class="feature-tag">ECG · PPG · SpO₂</span>
+              <svg class="viz viz-ecg" viewBox="24 12 436 252" preserveAspectRatio="xMidYMid meet">
+                <g class="viz-axes">
+                  <path d="M36 30 V250 H444" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M48 78 H100 L118 78 L132 28 L148 150 L164 55 L180 78 H250 L268 78 L282 28 L298 150 L314 55 L330 78 H440" />
+                  <path d="M48 155 C78 130, 108 180, 138 155 S198 120, 228 155 S288 195, 318 155 S378 125, 440 155" />
+                </g>
+                <g class="viz-bars">
+                  <rect x="70" y="210" width="90" height="10" opacity="0.55" />
+                  <rect x="170" y="210" width="70" height="10" opacity="0.75" />
+                  <rect x="250" y="210" width="110" height="10" opacity="0.4" />
+                </g>
+                <g class="viz-marks">
+                  <text x="400" y="58">ECG</text>
+                  <text x="400" y="140">PPG</text>
+                  <text x="400" y="220">SpO₂</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <p class="feature-meta">
+                <time datetime="2025-09">Sept 2025 – Present</time>
+                <span>Hamilton</span>
+              </p>
+              <h3>Electrical Lead</h3>
+              <p class="org">Biomedical Engineering Technical Team</p>
+              <ul class="points">
+                <li>
+                  Electrical lead on an emergency triage device that reads heart
+                  rate, SpO₂, and blood pressure from ECG and PPG, plus
+                  temperature and related vitals sensors.
+                </li>
+                <li>
+                  Own the sensing and signal path so first responders get
+                  multimodal vitals in the field.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="feature theme-teal">
+            <div class="feature-viz" aria-hidden="true">
+              <span class="feature-tag">Sonar · Telemetry</span>
+              <svg class="viz viz-sonar" viewBox="24 12 436 252" preserveAspectRatio="xMidYMid meet">
+                <g class="viz-axes">
+                  <path d="M36 30 V250 H444" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M48 70 H90 L105 40 L120 130 L135 70 H200 L215 45 L230 125 L245 70 H440" />
+                  <path d="M48 165 C90 145, 140 185, 190 160 S280 120, 330 170 S390 210, 440 175" />
+                  <path d="M48 220 L120 220 L120 195 L200 195 L200 230 L280 230 L280 200 L360 200 L360 225 L440 225" />
+                </g>
+                <g class="viz-marks">
+                  <text x="400" y="52">ping</text>
+                  <text x="400" y="150">IMU</text>
+                  <text x="400" y="210">depth</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <p class="feature-meta">
+                <time datetime="2025-09">Sept 2025 – Present</time>
+                <span>Hamilton</span>
+              </p>
+              <h3>Software Lead</h3>
+              <p class="org">
+                Deep-space Analogue Research Expedition — BELUGA
+              </p>
+              <ul class="points">
+                <li>
+                  Architected the software for BELUGA, an underwater explorer
+                  built as a Europa sea-analogue for submerged cave sampling and
+                  water testing.
+                </li>
+                <li>
+                  Designed the stack from Pico firmware (pressure, temp, humidity,
+                  IMU, thruster PWM) through a Pi stream node (CV, pathfinding,
+                  video and telemetry) to a backend that serves dashboard and
+                  mobile control, with mission recording into BELUGA-Viz.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="feature feature-flip theme-copper">
+            <div class="feature-viz" aria-hidden="true">
+              <span class="feature-tag">Path · Encoders</span>
+              <svg class="viz viz-path" viewBox="24 12 436 252" preserveAspectRatio="xMidYMid meet">
+                <g class="viz-axes">
+                  <path d="M40 40 H440 M40 100 H440 M40 160 H440 M40 220 H440" opacity="0.35" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M50 210 L110 170 L170 190 L240 90 L310 130 L380 60 L430 100" />
+                  <path d="M50 240 H110 H170 H240 H310 H380 H430" />
+                </g>
+                <g class="viz-marks">
+                  <circle cx="50" cy="210" r="4" />
+                  <circle cx="110" cy="170" r="4" />
+                  <circle cx="170" cy="190" r="4" />
+                  <circle cx="240" cy="90" r="4" />
+                  <circle cx="310" cy="130" r="4" />
+                  <circle cx="380" cy="60" r="4" />
+                  <circle cx="430" cy="100" r="4" />
+                  <text x="400" y="48">route</text>
+                  <text x="400" y="250">ticks</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <p class="feature-meta">
+                <time datetime="2019-09">Sept 2019 – Jun 2023</time>
+                <span>Toronto</span>
+              </p>
+              <h3>Robotics Engineer and Senior Executive</h3>
+              <p class="org">Robotics Team, Albert Campbell C.I.</p>
+              <ul class="points">
+                <li>
+                  Won 1st place at the UofT RSX Robotics Competition (1/20 teams),
+                  designing an autonomous Arduino-based pathfinding robot using
+                  C++ and CAD.
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="band" id="projects">
+        <div class="band-head">
+          <p class="index">02 — Projects</p>
+          <h2>Projects</h2>
+        </div>
+
+        <div class="features features-compact">
+          <article class="feature theme-plum">
+            <div class="feature-viz" aria-hidden="true">
+              <span class="feature-tag">BCI → Soundtrack</span>
+              <svg class="viz viz-soundtrack" viewBox="16 8 448 224" preserveAspectRatio="xMidYMid meet">
+                <g class="viz-axes">
+                  <path d="M32 42 H208 V112 H32 Z" />
+                  <path d="M32 132 H208 V202 H32 Z" />
+                  <path d="M276 42 H448 V202 H276 Z" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M44 68 C66 48, 88 90, 110 62 S154 40, 176 70 S198 78, 200 72" />
+                  <path d="M44 88 C68 80, 92 98, 116 86 S160 78, 184 92 S198 94, 200 90" />
+                </g>
+                <g class="viz-trace viz-soft">
+                  <path d="M44 158 C64 142, 84 176, 106 154 S150 134, 172 162 S192 178, 200 164" />
+                  <path d="M44 180 C70 172, 96 190, 122 178 S168 168, 192 184 S198 186, 200 182" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M218 77 H248" />
+                  <path d="M218 167 H248" />
+                  <path d="M248 77 V167" />
+                  <path d="M248 122 H276" />
+                </g>
+                <g class="viz-bars">
+                  <rect x="292" y="158" width="12" height="32" />
+                  <rect x="310" y="118" width="12" height="72" />
+                  <rect x="328" y="72" width="12" height="118" />
+                  <rect x="346" y="98" width="12" height="92" />
+                  <rect x="364" y="58" width="12" height="132" />
+                  <rect x="382" y="88" width="12" height="102" />
+                  <rect x="400" y="128" width="12" height="62" />
+                  <rect x="418" y="108" width="12" height="82" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M292 92 C318 48, 352 150, 386 78 S420 56, 436 88" />
+                </g>
+                <g class="viz-marks">
+                  <circle cx="248" cy="122" r="3.5" />
+                  <text x="40" y="32">EEG</text>
+                  <text x="40" y="122">ECG · IMU</text>
+                  <text x="284" y="32">audio out</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <p class="feature-meta">
+                <time datetime="2026-01">January 2026</time>
+              </p>
+              <h3>SoundTrack</h3>
+              <ul class="points">
+                <li>
+                  Built a BCI-driven multimodal pipeline for EEG, ECG, and IMU
+                  from neurofeedback hardware, using PSD analysis to map
+                  real-time physiological signals to emotional states for a
+                  closed-loop biofeedback system.
+                </li>
+                <li>
+                  Integrated Gemini 2.5 with a Raspberry Pi and FastAPI to perform
+                  scene analysis and generate context-aware audio via the Spotify
+                  API and Lyria, with biometric analysis in a React web app.
+                </li>
+                <li>
+                  Streamed biometrics and playback state through Firebase so the
+                  web UI could update live as physiology and the surrounding
+                  scene changed the generated soundtrack.
+                </li>
+              </ul>
+              <p class="tags">
+                Python · FastAPI · Gemini 2.5 · Firebase · Spotify API · Lyria ·
+                Raspberry Pi · React
+              </p>
+              <p class="links">
+                <a href="https://github.com/DhushanK/SoundTrack">GitHub</a>
+                <a href="https://devpost.com/software/soundtrack-nydh19">Devpost</a>
+              </p>
+            </div>
+          </article>
+
+          <article class="feature feature-flip theme-navy">
+            <div class="feature-viz" aria-hidden="true">
+              <span class="feature-tag">Density · Sites</span>
+              <svg class="viz viz-density" viewBox="24 12 436 252" preserveAspectRatio="xMidYMid meet">
+                <g class="viz-axes">
+                  <path d="M40 40 H440 M40 230 H440" opacity="0.35" />
+                </g>
+                <g class="viz-marks">
+                  <circle cx="90" cy="80" r="6" />
+                  <circle cx="120" cy="105" r="4" />
+                  <circle cx="70" cy="120" r="5" />
+                  <circle cx="145" cy="70" r="3" />
+                  <circle cx="250" cy="150" r="7" />
+                  <circle cx="285" cy="130" r="5" />
+                  <circle cx="310" cy="170" r="4" />
+                  <circle cx="270" cy="185" r="6" />
+                  <circle cx="390" cy="75" r="5" />
+                  <circle cx="420" cy="100" r="4" />
+                  <circle cx="365" cy="55" r="6" />
+                  <circle cx="410" cy="140" r="3" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M48 230 C90 210, 130 180, 160 200 S230 240, 280 205 S350 150, 440 175" />
+                  <circle cx="120" cy="100" r="28" fill="none" />
+                  <circle cx="285" cy="155" r="34" fill="none" />
+                  <circle cx="395" cy="90" r="26" fill="none" />
+                </g>
+                <g class="viz-marks">
+                  <text x="400" y="48">clusters</text>
+                  <text x="360" y="250">activity</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <p class="feature-meta">
+                <time datetime="2024-07">July 2024</time>
+              </p>
+              <h3>EV Charger Optimization</h3>
+              <ul class="points">
+                <li>
+                  Processed traffic video to extract vehicle positions over time,
+                  then used DBSCAN clustering to find high-activity regions that
+                  would benefit from nearby charger placement.
+                </li>
+                <li>
+                  Ranked candidate sites with a greedy placement pass and showed
+                  the density map and recommended locations in a Taipy web app
+                  built with TensorFlow and NumPy tooling.
+                </li>
+              </ul>
+              <p class="tags">Python · TensorFlow · Taipy · NumPy</p>
+              <p class="links">
+                <a href="https://github.com/DhushanK/Car-Density-Track">GitHub</a>
+                <a
+                  href="https://docs.google.com/presentation/d/1mD2TdGSPJM5PfEsmoDiNcbvFF1qBVocEH0cbytS_RrM/edit"
+                  >Slides</a
+                >
+              </p>
+            </div>
+          </article>
+
+          <article class="feature theme-amber">
+            <div class="feature-viz" aria-hidden="true">
+              <span class="feature-tag">Coords → Grid</span>
+              <svg class="viz viz-map" viewBox="28 24 424 200" preserveAspectRatio="xMidYMid meet">
+                <g class="viz-axes">
+                  <path d="M50 50 H190 V190 H50 Z" />
+                  <path d="M70 70 L120 95 L170 80 L150 140 L90 150 Z" opacity="0.5" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M200 120 H250" />
+                </g>
+                <g class="viz-marks">
+                  <circle cx="290" cy="70" r="4" />
+                  <circle cx="330" cy="70" r="7" />
+                  <circle cx="370" cy="70" r="3" />
+                  <circle cx="410" cy="70" r="5" />
+                  <circle cx="290" cy="110" r="6" />
+                  <circle cx="330" cy="110" r="9" />
+                  <circle cx="370" cy="110" r="4" />
+                  <circle cx="410" cy="110" r="6" />
+                  <circle cx="290" cy="150" r="3" />
+                  <circle cx="330" cy="150" r="5" />
+                  <circle cx="370" cy="150" r="8" />
+                  <circle cx="410" cy="150" r="4" />
+                  <circle cx="290" cy="190" r="5" />
+                  <circle cx="330" cy="190" r="3" />
+                  <circle cx="370" cy="190" r="6" />
+                  <circle cx="410" cy="190" r="7" />
+                  <text x="55" y="220">space</text>
+                  <text x="290" y="220">haptic</text>
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <p class="feature-meta">
+                <time datetime="2024-02">February 2024</time>
+              </p>
+              <h3>Tactile Vision Replacement</h3>
+              <ul class="points">
+                <li>
+                  Built a computer-vision path in OpenCV and TensorFlow that
+                  reads a live camera scene and extracts spatial structure for
+                  people who need non-visual cues.
+                </li>
+                <li>
+                  Mapped those coordinates onto a haptic grid so nearby objects
+                  and edges could be felt as real-time tactile feedback, with
+                  performance-sensitive pieces in C++.
+                </li>
+              </ul>
+              <p class="tags">Python · OpenCV · TensorFlow · C++</p>
+              <p class="links">
+                <a href="https://github.com/DhushanK/TouchVision-Aid-">GitHub</a>
+                <a
+                  href="https://docs.google.com/presentation/d/1ynFSw642J81grb569shwtO20-u88t6OcwB4nLNyqlYw/edit"
+                  >Slides</a
+                >
+              </p>
+            </div>
+          </article>
+
+          <article class="feature feature-flip theme-copper">
+            <div class="feature-viz" aria-hidden="true">
+              <span class="feature-tag">HR · Baseline</span>
+              <svg class="viz viz-thresh" viewBox="24 12 436 252" preserveAspectRatio="xMidYMid meet">
+                <g class="viz-axes">
+                  <path d="M36 30 V250 H444" />
+                </g>
+                <g class="viz-bars">
+                  <rect x="48" y="130" width="392" height="50" opacity="0.18" />
+                </g>
+                <g class="viz-trace">
+                  <path d="M48 155 C80 145, 110 165, 140 150 S200 120, 230 150 S290 200, 320 145 S380 70, 440 105" />
+                  <path d="M48 120 H440" />
+                </g>
+                <g class="viz-marks">
+                  <text x="400" y="55">HR</text>
+                  <text x="400" y="112">thresh</text>
+                  <text x="360" y="178">baseline</text>
+                  <circle cx="390" cy="82" r="5" />
+                </g>
+              </svg>
+            </div>
+            <div class="feature-body">
+              <p class="feature-meta">
+                <time datetime="2024-01">January 2024</time>
+              </p>
+              <h3>PainSense</h3>
+              <ul class="points">
+                <li>
+                  Programmed a Raspberry Pi embedded system that tracks heart
+                  rate against a personal baseline and flags abnormal activity
+                  with threshold logic.
+                </li>
+                <li>
+                  Modelled the enclosure and sensing layout in Autodesk Inventor
+                  so the hardware could sit with the wearer during monitoring.
+                </li>
+              </ul>
+              <p class="tags">Python · Raspberry Pi 4 · Autodesk Inventor</p>
+              <p class="links">
+                <a
+                  href="https://stealth-othnielia-179.notion.site/DP-3-PainSense-23538e61a0f54c4da62f1130805670eb"
+                  >Studio notes</a
+                >
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="studio-strip">
+          <div class="studio-row">
+            <article class="studio-item theme-teal">
+              <h3>Osto-Lock</h3>
+              <p>
+                Two-piece ostomy system designed to stay sealed when the wearer
+                bends and twists. A spring clip, magnets, and alignment guides
+                seat the pouch, and a lock-and-roll closure finishes the seal.
+              </p>
+              <a
+                href="https://stealth-othnielia-179.notion.site/DP-1-Osto-Lock-a250a07a4e4541f29ab8c99e2f0e0566"
+                >Studio notes</a
+              >
+            </article>
+            <article class="studio-item theme-navy">
+              <h3>PivotPro</h3>
+              <p>
+                Custom hip replacement for Legg-Calvé-Perthes disease. Modelled
+                the femoral head, neck, and stem in Autodesk Inventor and
+                3D-printed a prototype for a reshaped socket a standard implant
+                cannot fit.
+              </p>
+              <p class="tags">Autodesk Inventor</p>
+              <a
+                href="https://stealth-othnielia-179.notion.site/DP-2-PivotPro-b00fcf601d624077bd23cbb8cc8798a0"
+                >Studio notes</a
+              >
+            </article>
+            <article class="studio-item theme-amber">
+              <h3>ElevateEase</h3>
+              <p>
+                Automatic scooter footrest designed with a client living with
+                relapsing-remitting MS, left-side weakness, and foot drop. It
+                extends on demand and adjusts height so her feet can meet the
+                ground safely.
+              </p>
+              <a
+                href="https://stealth-othnielia-179.notion.site/DP-4-ElevateEase-7fb511b266a647ac9f03776491c5c27b"
+                >Studio notes</a
+              >
+            </article>
           </div>
-          <div>
-            <h3>Software Engineer Intern</h3>
-            <p class="org">Divergence Neuro Technologies Inc.</p>
-            <ul class="points">
-              <li>
-                Architected and implemented a new EEG signal processing pipeline
-                utilizing Minimum Phase FIR filters with dynamic windowing;
-                integrated frequency bin anomaly detection, blink detection, and
-                impedance gating to automate real-time artifact rejection for BCI
-                applications, achieving &gt;10x latency reduction and 10x
-                frequency resolution.
-              </li>
-              <li>
-                Developed full-stack features and streaming functionality across
-                a React-Native Mobile App, React Webapp, JavaScript backend and
-                TypeScript DSP library; implemented native Kotlin and Swift
-                Bluetooth layers to facilitate real-time data ingestion from
-                neurofeedback hardware utilizing RxJS and WebSockets for clinical
-                biofeedback.
-              </li>
-              <li>
-                Architected and implemented a novel Mixed-Radix FFT in
-                TypeScript, achieving a 6x runtime speed increase and 62%
-                improvement over online Radix-2 implementations for
-                high-resolution PSD and signal quality analysis.
-              </li>
-              <li>
-                Architected a multi-modal biofeedback pipeline for raw ECG, PPG,
-                respiration, and skin conductance; designed a 2nd-order
-                auto-regressive (AR) model with optimized damping sensitivity to
-                maximize RSA utility, driving real-time coherence metrics to
-                achieve a 5x latency reduction over industry standard HRV
-                biofeedback.
-              </li>
-              <li>
-                Integrated Mobios computer vision based stress-detection
-                pipeline, developing image processing modules for RGB analysis
-                and facial alignment to validate environmental conditions and
-                ensure high-fidelity data capture.
-              </li>
-              <li>
-                Implemented a high-performance Lempel-Ziv Complexity algorithm
-                using a Suffix Automaton (DAWG) and Quickselect to stream
-                real-time brain entropy.
-              </li>
-              <li>
-                Designed an internal benchmarking tool to profile DSP pipeline
-                operators and quantify computation time, driving targeted
-                optimizations that achieved a 2x runtime performance increase in
-                neurofeedback workflows.
-              </li>
+        </div>
+      </section>
+
+      <section class="band" id="skills" aria-label="Technical skills">
+        <div class="skills">
+          <div class="skill-row">
+            <h3>Languages</h3>
+            <ul>
+              <li>Python</li>
+              <li>Java</li>
+              <li>C++</li>
+              <li>C</li>
+              <li>MATLAB</li>
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>Kotlin</li>
+              <li>Swift</li>
+              <li>Verilog</li>
             </ul>
           </div>
-        </article>
-
-        <article class="entry">
-          <div class="meta">
-            <time datetime="2024-10">Oct 2024 – Present</time>
-            <p>Hamilton</p>
-          </div>
-          <div>
-            <h3>Camera and Signal Processing Lead</h3>
-            <p class="org">McMaster MED-T — SafeStride</p>
-            <ul class="points">
-              <li>
-                Co-developed SafeStride, a React Native mobile application
-                integrating GPS and the Google Maps API for real-time pedestrian
-                navigation and dynamic crosswalk identification.
-              </li>
-              <li>
-                Designed hardware and software for phased-array control,
-                utilizing high-frequency signal generation, phase-shifting, and
-                ultrasonic sensors for precise object detection and vehicle
-                vector tracking.
-              </li>
-              <li>
-                Integrated a YOLO computer vision object tracking pipeline with
-                Bluetooth communication via Raspberry Pi to stream safe-to-cross
-                audio feedback over custom bone-conduction headphones.
-              </li>
+          <div class="skill-row">
+            <h3>Tools</h3>
+            <ul>
+              <li>FastAPI</li>
+              <li>Firebase</li>
+              <li>OpenCV</li>
+              <li>TensorFlow</li>
+              <li>Git</li>
+              <li>React Native</li>
+              <li>CocoaPods</li>
+              <li>React</li>
+              <li>RxJS</li>
+              <li>SQL</li>
             </ul>
-            <p class="links">
-              <a href="https://github.com/DhushanK/MedTAppModular">App</a>
-              <a href="https://github.com/DhushanK/MedTYoloModel">Vision</a>
-            </p>
           </div>
-        </article>
+          <div class="skill-row">
+            <h3>Hardware</h3>
+            <ul>
+              <li>Raspberry Pi</li>
+              <li>Arduino</li>
+              <li>STM32</li>
+              <li>Biosensors</li>
+              <li>KiCad</li>
+              <li>PSPICE</li>
+              <li>CAD</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-        <article class="entry">
-          <div class="meta">
-            <time datetime="2025">2025 – 2026</time>
-            <p>Hamilton</p>
-          </div>
-          <div>
-            <h3>Electrical Lead</h3>
-            <p class="org">Biomedical Engineering Technical Team</p>
-            <p>
-              Electrical lead on TrACL, BMETT’s knee sleeve for the True North
-              Biomedical Competition. It is built for ACL rehabilitation: wet
-              electrodes read muscle activity, and IMUs plus a magnet-based
-              measurement follow range of motion, so recovery can be tracked
-              with data.
-            </p>
-          </div>
-        </article>
-
-        <article class="entry">
-          <div class="meta">
-            <p>Hamilton</p>
-          </div>
-          <div>
-            <h3>Software Lead</h3>
-            <p class="org">Deep-space Analogue Research Expedition</p>
-            <p>
-              Software lead for DARE, McMaster’s Deep-space Analogue Research
-              Expedition. The team fields vehicles that stand in for missions
-              beyond Earth: an aerial system for mapping lava caves, and BELUGA,
-              an underwater drone for sampling submerged caves as an analogue of
-              Europa.
-            </p>
-          </div>
-        </article>
+      <section class="band" id="writing">
+        <div class="band-head">
+          <p class="index">03 — Writing</p>
+          <h2>Writing</h2>
+        </div>
 
         <article class="entry">
           <div class="meta">
@@ -253,9 +813,6 @@
               Integrating Rhosin, Methotrexate, and Focused Ultrasound for
               Targeted Therapy of Glioblastoma Multiforme
             </h3>
-            <p class="org">
-              With Seth (Ze Long) Xue and Maryam Khatib
-            </p>
             <p>
               A SABCR abstract on reaching a glioblastoma through the blood-brain
               barrier. Rhosin, a RhoA inhibitor, and methotrexate are paired with
@@ -269,217 +826,10 @@
         </article>
       </section>
 
-      <section class="band" id="projects">
-        <div class="band-head">
-          <p class="index">02 — Projects</p>
-          <h2>Closed loops, from a pulse to a street.</h2>
-        </div>
-
-        <article class="entry">
-          <div class="meta">
-            <time datetime="2026-01">January 2026</time>
-            <p>With Jonathan Shanmuganantham and Moghesh K</p>
-          </div>
-          <div>
-            <h3>SoundTrack</h3>
-            <ul class="points">
-              <li>
-                Developed a multimodal pipeline for EEG, ECG, and IMU data from
-                neurofeedback hardware, utilizing PSD analysis to map real-time
-                physiological signals to emotional states for a closed-loop
-                biofeedback system.
-              </li>
-              <li>
-                Integrated Gemini 2.5 with a Raspberry Pi and FastAPI to perform
-                scene analysis and generate context-aware audio via the Spotify
-                API and Lyria with biometric analysis displayed in a react based
-                webapp.
-              </li>
-            </ul>
-            <p class="tags">
-              Python · FastAPI · Gemini 2.5 · Firebase · Spotify API · Lyria ·
-              Raspberry Pi · React
-            </p>
-            <p class="links">
-              <a href="https://github.com/DhushanK/SoundTrack">GitHub</a>
-              <a href="https://devpost.com/software/soundtrack-nydh19">Devpost</a>
-            </p>
-          </div>
-        </article>
-
-        <article class="entry">
-          <div class="meta">
-            <time datetime="2024-07">July 2024</time>
-          </div>
-          <div>
-            <h3>EV Charger Optimization</h3>
-            <ul class="points">
-              <li>
-                Identified high-activity car regions via DBSCAN clustering and
-                greedy algorithms from video feeds; visualized optimal
-                deployment sites in a Taipy web application.
-              </li>
-            </ul>
-            <p class="tags">Python · TensorFlow · Taipy · NumPy</p>
-            <p class="links">
-              <a href="https://github.com/DhushanK/Car-Density-Track">GitHub</a>
-              <a
-                href="https://docs.google.com/presentation/d/1mD2TdGSPJM5PfEsmoDiNcbvFF1qBVocEH0cbytS_RrM/edit"
-                >Slides</a
-              >
-            </p>
-          </div>
-        </article>
-
-        <article class="entry">
-          <div class="meta">
-            <time datetime="2024-02">February 2024</time>
-          </div>
-          <div>
-            <h3>Tactile Vision Replacement</h3>
-            <ul class="points">
-              <li>
-                Designed a CV system using TensorFlow to map spatial coordinates
-                into a haptic grid for real-time tactile feedback.
-              </li>
-            </ul>
-            <p class="tags">Python · OpenCV · TensorFlow · C++</p>
-            <p class="links">
-              <a href="https://github.com/DhushanK/TouchVision-Aid-">GitHub</a>
-              <a
-                href="https://docs.google.com/presentation/d/1ynFSw642J81grb569shwtO20-u88t6OcwB4nLNyqlYw/edit"
-                >Slides</a
-              >
-            </p>
-          </div>
-        </article>
-      </section>
-
-      <section class="band" id="studio">
-        <div class="band-head">
-          <p class="index">03 — First-year studio</p>
-          <h2>Four devices, each for one person.</h2>
-          <p class="band-note">
-            iBioMed design projects at McMaster. Each one started from a client
-            and ended as hardware.
-          </p>
-        </div>
-
-        <div class="studio-grid">
-          <article class="studio-card">
-            <p class="kicker">DP-1</p>
-            <h3>Osto-Lock</h3>
-            <p>
-              A two-piece ostomy system that stays on when the wearer bends and
-              twists. The barrier clips with a spring, magnets and guides hold
-              the latch, and the pouch closes with a lock-and-roll.
-            </p>
-            <p class="motto">Active living made secure.</p>
-            <a
-              href="https://stealth-othnielia-179.notion.site/DP-1-Osto-Lock-a250a07a4e4541f29ab8c99e2f0e0566"
-              >Studio notes</a
-            >
-          </article>
-
-          <article class="studio-card">
-            <p class="kicker">DP-2</p>
-            <h3>PivotPro</h3>
-            <p>
-              A hip replacement for Legg-Calvé-Perthes disease, where a standard
-              implant cannot sit in the reshaped socket. I modelled the femoral
-              head, neck, and stem in Autodesk Inventor, and we printed it.
-            </p>
-            <a
-              href="https://stealth-othnielia-179.notion.site/DP-2-PivotPro-b00fcf601d624077bd23cbb8cc8798a0"
-              >Studio notes</a
-            >
-          </article>
-
-          <article class="studio-card">
-            <p class="kicker">DP-3 · January 2024</p>
-            <h3>PainSense</h3>
-            <ul class="points">
-              <li>
-                Programmed an embedded system with threshold logic to detect
-                abnormal HR activity relative to user baselines.
-              </li>
-            </ul>
-            <p class="tags">Python · Raspberry Pi 4 · Autodesk Inventor</p>
-            <a
-              href="https://stealth-othnielia-179.notion.site/DP-3-PainSense-23538e61a0f54c4da62f1130805670eb"
-              >Studio notes</a
-            >
-          </article>
-
-          <article class="studio-card">
-            <p class="kicker">DP-4</p>
-            <h3>ElevateEase</h3>
-            <p>
-              An automatic footrest for a scooter, designed with a client living
-              with relapsing-remitting MS, left-side weakness, and foot drop. It
-              extends only when she wants it, and the height adjusts so her feet
-              can meet the ground.
-            </p>
-            <a
-              href="https://stealth-othnielia-179.notion.site/DP-4-ElevateEase-7fb511b266a647ac9f03776491c5c27b"
-              >Studio notes</a
-            >
-          </article>
-        </div>
-      </section>
-
-      <section class="band" id="more">
-        <div class="band-head">
-          <p class="index">04 — Before McMaster</p>
-          <h2>A robotics team, and the tools I keep close.</h2>
-        </div>
-
-        <article class="entry">
-          <div class="meta">
-            <time datetime="2019-09">2019 – 2023</time>
-            <p>Toronto</p>
-          </div>
-          <div>
-            <h3>Robotics Engineer and Senior Executive</h3>
-            <p class="org">Robotics Team, Albert Campbell C.I.</p>
-            <ul class="points">
-              <li>
-                Led a 15-member team to 1st place at the UofT RSX Robotics
-                Competition (1/20 teams), designing an autonomous Arduino-based
-                pathfinding robot using C++ and CAD.
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <div class="skills" aria-label="Technical skills">
-          <div>
-            <h3>Languages</h3>
-            <p>
-              Python, Java, C++, C, MATLAB, JavaScript/TypeScript, Kotlin,
-              Swift, Verilog
-            </p>
-          </div>
-          <div>
-            <h3>Tools</h3>
-            <p>
-              FastAPI, Firebase, OpenCV, TensorFlow, Git, React Native,
-              CocoaPods, React, RxJs, SQL
-            </p>
-          </div>
-          <div>
-            <h3>Hardware</h3>
-            <p>
-              Raspberry Pi, Arduino, STM32, Biosensors, KiCad, PSPICE, CAD
-            </p>
-          </div>
-        </div>
-      </section>
-
       <footer class="band footer" id="contact">
         <div class="band-head">
-          <p class="index">05 — Contact</p>
-          <h2>Write, or look through the code.</h2>
+          <p class="index">04 — Contact</p>
+          <h2>Contact</h2>
         </div>
         <p class="contact-line">
           <a href="mailto:kirithd@mcmaster.ca">kirithd@mcmaster.ca</a>
@@ -492,6 +842,6 @@
       </footer>
     </main>
 
-    <script src="main.js?v=9"></script>
+    <script src="main.js?v=12"></script>
   </body>
 </html>

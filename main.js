@@ -17,9 +17,9 @@ const channelNotes = {
 
 const statusCopy = {
   wave:
-    "EEG at four sites, chest ECG, pulse, skin conductance, and skin temperature. Each one loops on its own.",
+    "EEG at four sites, chest ECG, pulse, skin conductance, and skin temperature.",
   spectrogram:
-    "Short-time spectra of the same recording. Frequency runs up each lane; the side shows each channel’s predominant band.",
+    "Short-time spectra of the same recording. Frequency runs up each lane; the side shows each channel’s dominant frequency.",
 };
 
 const frequencyBands = [
@@ -184,6 +184,7 @@ function startScope(recording) {
   const canvas = scopeCanvas;
   const names = document.getElementById("scope-names");
   const bandsEl = document.getElementById("scope-bands");
+  const bandsCaption = document.getElementById("bands-caption");
   const scopeEl = canvas.closest(".scope");
   const ctx = canvas.getContext("2d");
   const channels = recording.channels;
@@ -351,6 +352,7 @@ function startScope(recording) {
       bandsEl.hidden = !spectrogram;
       bandsEl.setAttribute("aria-hidden", spectrogram ? "false" : "true");
     }
+    if (bandsCaption) bandsCaption.hidden = !spectrogram;
   }
 
   function updateBands() {
@@ -375,7 +377,7 @@ function startScope(recording) {
         }
         label.root.setAttribute(
           "aria-label",
-          `${channel.name} predominant band ${band.name}`
+          `${channel.name} dominant frequency ${band.name}`
         );
         return;
       }
@@ -384,7 +386,7 @@ function startScope(recording) {
       label.name.textContent = "";
       label.root.setAttribute(
         "aria-label",
-        `${channel.name} predominant frequency ${range}`
+        `${channel.name} dominant frequency ${range}`
       );
     });
   }
@@ -650,7 +652,6 @@ if (scopeCanvas) {
 const roles = [
   "Software Engineer",
   "Electrical Engineer",
-  "Embedded Systems",
   "Robotics Engineer",
   "DSP Engineer",
 ];
@@ -670,3 +671,4 @@ if (!reduce && role) {
     }, 420);
   }, 3400);
 }
+
