@@ -106,12 +106,141 @@ main {
 }
 
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 2.5rem 1.25rem 2rem;
+  isolation: isolate;
+}
+
+.hero-sides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  display: none;
+}
+
+.hero-side {
+  position: absolute;
+  top: 52%;
+  width: clamp(8.5rem, 14vw, 12.5rem);
+  height: auto;
+  transform: translateY(-50%);
+  color: var(--ink);
+  opacity: 0.5;
+}
+
+.hero-side-left {
+  left: clamp(0.4rem, 2.2vw, 2.25rem);
+}
+
+.hero-side-right {
+  right: clamp(0.4rem, 2.2vw, 2.25rem);
+}
+
+.hero-side .brain-shell path,
+.hero-side .brain-shell ellipse,
+.hero-side .heart-shell path {
+  fill: none;
+  stroke: color-mix(in srgb, var(--ink) 55%, var(--blood));
+  stroke-width: 1.35;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-side .brain-fold,
+.hero-side .heart-chamber {
+  fill: none;
+  stroke: color-mix(in srgb, var(--ink) 28%, transparent);
+  stroke-width: 1;
+}
+
+.hero-side .heart-shell > path:first-child {
+  stroke-width: 1.45;
+}
+
+.hero-side .brain-mesh path,
+.hero-side .heart-vessels path {
+  stroke: var(--blood);
+  stroke-width: 1.05;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.55;
+  stroke-dasharray: 4 7;
+  animation: brain-flow 5.5s linear infinite;
+}
+
+.hero-side-right .heart-vessels path {
+  animation-direction: reverse;
+  animation-duration: 4.8s;
+  stroke-dasharray: 3 6;
+}
+
+.hero-side .brain-nodes circle,
+.hero-side .heart-nodes circle {
+  fill: var(--blood);
+  stroke: none;
+  opacity: 0.7;
+  animation: pulse-dot 3.8s ease-in-out infinite;
+}
+
+.hero-side .brain-nodes circle:nth-child(odd),
+.hero-side .heart-nodes circle:nth-child(odd) {
+  animation-delay: -1.4s;
+}
+
+.hero-side .brain-nodes circle:nth-child(3n),
+.hero-side .heart-nodes circle:nth-child(3n) {
+  animation-delay: -2.4s;
+}
+
+.hero-side-right .heart-nodes circle {
+  animation-duration: 2.8s;
+}
+
+.hero-side .brain-labels text,
+.hero-side .brain-readout text,
+.hero-side .heart-labels text,
+.hero-side .heart-ecg text {
+  fill: color-mix(in srgb, var(--muted) 80%, var(--blood));
+  font-family: var(--sans);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.hero-side .brain-readout path,
+.hero-side .heart-ecg path {
+  stroke: var(--blood);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.65;
+}
+
+.hero-side .brain-readout path:last-of-type,
+.hero-side .heart-ecg path {
+  animation: brain-trace 3.6s ease-in-out infinite;
+}
+
+.hero-side .heart-ecg path {
+  animation-name: heart-ecg;
+  animation-duration: 2.6s;
+}
+
+.hero > :not(.hero-sides) {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 900px) {
+  .hero-sides {
+    display: block;
+  }
 }
 
 .who {
@@ -630,6 +759,29 @@ h2 {
 .viz-bars rect {
   fill: color-mix(in srgb, var(--accent) 42%, transparent);
   stroke: none;
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: viz-bar 3.8s ease-in-out infinite alternate;
+}
+
+.viz-bars rect:nth-child(2) {
+  animation-delay: -0.55s;
+}
+
+.viz-bars rect:nth-child(3) {
+  animation-delay: -1.1s;
+}
+
+.viz-bars rect:nth-child(4) {
+  animation-delay: -1.65s;
+}
+
+.viz-bars rect:nth-child(5) {
+  animation-delay: -2.2s;
+}
+
+.viz-bars rect:nth-child(6) {
+  animation-delay: -2.75s;
 }
 
 .viz-marks {
@@ -647,51 +799,105 @@ h2 {
 
 .viz-marks circle {
   fill: var(--accent);
+  animation: pulse-dot 3.4s ease-in-out infinite;
+}
+
+.viz-marks circle:nth-child(odd) {
+  animation-delay: -1.1s;
+}
+
+.viz-marks circle:nth-child(3n) {
+  animation-delay: -2.1s;
 }
 
 .viz-trace.viz-soft {
   opacity: 0.38;
 }
 
-.viz-bci .viz-trace,
-.viz-soundtrack .viz-trace,
-.viz-ecg .viz-trace,
-.viz-sonar .viz-trace,
-.viz-density .viz-trace,
-.viz-array .viz-trace {
-  animation: trace-drift 8s ease-in-out infinite alternate;
+.viz-trace path {
+  stroke-dasharray: 5 9;
+  animation: viz-flow 5.2s linear infinite;
 }
 
-.viz-bci .viz-marks circle {
-  animation: pulse-dot 3.6s ease-in-out infinite;
+.viz-trace.viz-soft path {
+  stroke-dasharray: 3 11;
+  animation-duration: 7.5s;
+  animation-direction: reverse;
 }
 
-.viz-bci .viz-marks circle:nth-child(odd) {
+.viz-bci .viz-trace path:nth-child(2) {
   animation-delay: -1.2s;
 }
 
-.viz-array .viz-marks circle {
-  animation: pulse-dot 3.6s ease-in-out infinite;
+.viz-bci .viz-trace path:nth-child(3) {
+  animation-delay: -2.4s;
 }
 
-.viz-array .viz-marks circle:nth-child(odd) {
-  animation-delay: -1.2s;
+.viz-bci .viz-trace path:nth-child(4) {
+  animation-delay: -3.6s;
 }
 
-.viz-haptic .viz-marks circle,
-.viz-map .viz-marks circle,
-.viz-density .viz-marks circle {
-  animation: pulse-dot 3.6s ease-in-out infinite;
+.viz-haptic .viz-trace path:first-child {
+  stroke-dasharray: 7 8;
+  animation: viz-flow 3.6s linear infinite;
 }
 
-.viz-haptic .viz-marks circle:nth-child(odd),
-.viz-map .viz-marks circle:nth-child(odd),
-.viz-density .viz-marks circle:nth-child(odd) {
-  animation-delay: -1.2s;
+.viz-haptic .viz-trace path:last-child {
+  stroke-dasharray: 2 6;
+  animation: viz-flow 2.4s linear infinite;
+}
+
+.viz-array .viz-trace path:nth-child(n + 6) {
+  stroke-dasharray: none;
+  animation: viz-ping 3.2s ease-out infinite;
+  transform-origin: 240px 190px;
+  transform-box: fill-box;
+}
+
+.viz-array .viz-trace path:nth-child(7) {
+  animation-delay: -1.1s;
+}
+
+.viz-ecg .viz-trace path:first-child {
+  stroke-dasharray: 4 7;
+  animation: viz-flow 2.8s linear infinite;
+}
+
+.viz-ecg .viz-trace path:last-child {
+  stroke-dasharray: 6 10;
+  animation: viz-flow 4.2s linear infinite reverse;
+}
+
+.viz-sonar .viz-trace path:nth-child(1) {
+  animation-duration: 3s;
+}
+
+.viz-sonar .viz-trace path:nth-child(2) {
+  animation-duration: 4.4s;
+  animation-direction: reverse;
+}
+
+.viz-sonar .viz-trace path:nth-child(3) {
+  stroke-dasharray: 8 6;
+  animation-duration: 5.6s;
 }
 
 .viz-path .viz-trace path:first-child {
-  animation: duty-shift 5.5s ease-in-out infinite alternate;
+  stroke-dasharray: 6 8;
+  animation: viz-flow 4s linear infinite;
+}
+
+.viz-path .viz-trace path:last-child {
+  stroke-dasharray: 2 10;
+  animation: viz-flow 6s linear infinite reverse;
+  opacity: 0.45;
+}
+
+.viz-soundtrack .viz-trace path,
+.viz-density .viz-trace path,
+.viz-map .viz-trace path,
+.viz-thresh .viz-trace path {
+  animation-duration: 4.6s;
 }
 
 .feature-body {
@@ -1132,21 +1338,60 @@ h2 {
   }
 }
 
-@keyframes trace-drift {
+@keyframes viz-flow {
+  to {
+    stroke-dashoffset: -56;
+  }
+}
+
+@keyframes viz-bar {
   from {
-    opacity: 0.7;
+    transform: scaleY(0.68);
+    opacity: 0.55;
   }
   to {
+    transform: scaleY(1.08);
     opacity: 1;
   }
 }
 
-@keyframes duty-shift {
-  from {
-    opacity: 0.65;
+@keyframes viz-ping {
+  0% {
+    opacity: 0.15;
   }
+  35% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes brain-flow {
   to {
-    opacity: 1;
+    stroke-dashoffset: -44;
+  }
+}
+
+@keyframes brain-trace {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes heart-ecg {
+  0%,
+  100% {
+    opacity: 0.45;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    opacity: 0.9;
+    stroke-dashoffset: -12;
   }
 }
 
@@ -1305,18 +1550,20 @@ h2 {
     stroke-dashoffset: 0;
   }
 
-  .viz-bci .viz-trace,
-  .viz-soundtrack .viz-trace,
-  .viz-ecg .viz-trace,
-  .viz-sonar .viz-trace,
-  .viz-density .viz-trace,
-  .viz-array .viz-trace,
-  .viz-bci .viz-marks circle,
-  .viz-path .viz-trace path:first-child,
-  .viz-haptic .viz-marks circle,
-  .viz-map .viz-marks circle,
-  .viz-density .viz-marks circle,
-  .viz-array .viz-marks circle {
+  .hero-side .brain-mesh path,
+  .hero-side .heart-vessels path,
+  .hero-side .brain-nodes circle,
+  .hero-side .heart-nodes circle,
+  .hero-side .brain-readout path:last-of-type,
+  .hero-side .heart-ecg path {
     animation: none;
+  }
+
+  .viz-trace path,
+  .viz-bars rect,
+  .viz-marks circle {
+    animation: none;
+    stroke-dasharray: none;
+    transform: none;
   }
 }
