@@ -334,31 +334,28 @@ main {
 }
 
 .scope.is-spectrogram {
-  grid-template-columns: 5.6rem minmax(0, 1fr) 8.6rem;
-  grid-template-rows: auto minmax(28rem, auto);
-}
-
-.scope.is-spectrogram .scope-names,
-.scope.is-spectrogram .scope-plot,
-.scope.is-spectrogram .scope-bands {
-  grid-row: 2;
+  grid-template-columns: 5.6rem minmax(0, 1fr) minmax(5.8rem, 7.6rem) 1.45rem;
 }
 
 .bands-caption {
-  grid-column: 3;
+  grid-column: 4;
   grid-row: 1;
-  align-self: end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
   width: 100%;
+  height: 100%;
   margin: 0;
-  padding: 0.45rem 0.55rem 0.35rem 0.4rem;
-  border-left: 1px solid var(--line);
+  padding: 0.5rem 0;
   font-family: var(--sans);
   font-size: 0.58rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  line-height: 1.2;
-  text-align: right;
+  line-height: 1;
   color: var(--muted);
+  writing-mode: vertical-rl;
+  text-align: center;
 }
 
 .bands-caption[hidden] {
@@ -452,7 +449,7 @@ main {
   justify-items: end;
   align-self: stretch;
   min-width: 0;
-  padding: 0 0.55rem 0 0.45rem;
+  padding: 0 0.4rem 0 0.45rem;
   border-left: 1px solid var(--line);
 }
 
@@ -535,7 +532,7 @@ main {
   padding: 0.85rem 1.1rem;
 }
 
-.monitor-bar button {
+.monitor-bar > button {
   font-family: var(--sans);
   font-size: 0.75rem;
   letter-spacing: 0.14em;
@@ -547,32 +544,82 @@ main {
   cursor: pointer;
 }
 
-.monitor-bar button[aria-pressed="true"] {
-  color: var(--blood);
-  border-color: var(--blood);
-}
-
 .scope-views {
   display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
 }
 
-.scope-views button {
-  border-radius: 0;
+.scope-views-label {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.scope-views button + button {
-  margin-left: -1px;
+.scope-views-track {
+  display: inline-flex;
+  padding: 0.18rem;
+  background: color-mix(in srgb, var(--paper-deep) 78%, var(--ink) 4%);
+  border: 1px solid var(--line);
+  gap: 0.15rem;
 }
 
-.scope-views button[aria-pressed="true"] {
-  position: relative;
-  z-index: 1;
+.scope-views-track button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  padding: 0.42rem 0.72rem;
+  cursor: pointer;
+  transition:
+    color 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.scope-views-track button svg {
+  width: 1.15rem;
+  height: 0.55rem;
+  flex: 0 0 auto;
+  opacity: 0.72;
+}
+
+.scope-views-track button[aria-pressed="true"] {
+  color: var(--paper);
+  background: var(--blood);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+.scope-views-track button[aria-pressed="true"] svg {
+  opacity: 1;
+}
+
+.scope-views-track button:hover {
+  color: var(--ink);
+}
+
+.scope-views-track button[aria-pressed="true"]:hover {
+  color: var(--paper);
 }
 
 .monitor-bar p {
   margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
   color: var(--muted);
-  font-size: 1.02rem;
+  font-size: 0.98rem;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .band {
@@ -1521,14 +1568,12 @@ h2 {
 
   .scope.is-spectrogram {
     height: auto;
-    grid-template-columns: 4.8rem minmax(0, 1fr) 5.6rem;
-    grid-template-rows: auto minmax(24rem, auto);
+    grid-template-columns: 4.8rem minmax(0, 1fr) minmax(4.6rem, 5.4rem) 1.25rem;
   }
 
   .bands-caption {
-    max-width: none;
-    padding-right: 0.35rem;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
+    font-size: 0.52rem;
   }
 
   .constant {

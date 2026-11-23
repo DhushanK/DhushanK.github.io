@@ -19,7 +19,7 @@ const statusCopy = {
   wave:
     "EEG at four sites, chest ECG, pulse, skin conductance, and skin temperature.",
   spectrogram:
-    "Short-time spectra of the same recording. Frequency runs up each lane; the side shows each channel’s dominant frequency.",
+    "Same recording as a spectrogram; side shows the dominant Hz.",
 };
 
 const frequencyBands = [
